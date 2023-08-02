@@ -1,3 +1,3 @@
-vnet_name   = "ITTest-VNET"
-vnet_rg     = "ITTest-Network-RG"
-subnet_name = "kubenet-subnet"
+vnet_name      = "ITTest-VNET"
+vnet_rg        = "ITTest-Network-RG"
+vm_subnet_name = "kubenet-subnet"
