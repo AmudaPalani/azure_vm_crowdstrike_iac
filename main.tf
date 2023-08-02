@@ -26,7 +26,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_firewall" "example" {
-  name                = "testfirewall"
+  name                = "testfirewall2"
   location            = azurerm_resource_group.example.location
   resource_group_name = var.vnet_rg
   sku_name            = "AZFW_VNet"
