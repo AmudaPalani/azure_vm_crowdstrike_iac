@@ -12,7 +12,7 @@ data "azurerm_virtual_network" "example" {
 }
 
 data "azurerm_subnet" "example" {
-  name = var.vm_subnet_name
+  name = "AzureFirewallSubnet"
   virtual_network_name = data.azurerm_virtual_network.example.name
   resource_group_name  = data.azurerm_virtual_network.example.resource_group_name
 }
