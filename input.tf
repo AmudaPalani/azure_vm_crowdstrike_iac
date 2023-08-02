@@ -27,9 +27,21 @@ variable "rg_name" {
   type        = string
   description = "Name for rg"
 }
+
 variable "location" {
   default     = "westus2"
   type        = string
   description = "Location of Azure resources"
 }
 
+variable "vnet_name" {
+  type        = string
+}
+
+variable "vnet_rg" {
+  type        = string
+}
+
+variable "subnet_name" {
+  type        = string
+}
