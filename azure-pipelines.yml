@@ -10,7 +10,7 @@ variables:
   tf_init_command_options: '-input=false -backend-config="storage_account_name=$(TF_BACKEND_STORAGE_ACCOUNT)" -backend-config="container_name=tfstate" -backend-config="key=azure.iam.iac.it-network-test.tf.state" -backend-config="access_key=$(TF_BACKEND_SA_ACCESS_KEY)"'
 
 stages:
-- stage: 'WFO_plan'
+- stage: 'pipeline_plan'
   jobs:
   - job: 'plan'
     steps:
@@ -36,13 +36,13 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'plan'
-        commandOptions: '-var-file="./wfo_terraform.tfvars" -var="tenant_id=$(TENANT_ID)" -var="client_id=$(WFO_CLIENT_ID)" -var="client_secret=$(WFO_CLIENT_SECRET2)"'
+        commandOptions: '-var-file="./pipeline_terraform.tfvars" -var="tenant_id=$(TENANT_ID)" -var="client_id=$(CLIENT_ID)" -var="client_secret=$(CLIENT_SECRET)"'
 
         environmentServiceNameAzureRm: 'Azure'
 
-- stage: 'WFO_deploy'
+- stage: 'pipeline_deploy'
   jobs:
-  - job: 'WFO_deploy'
+  - job: 'pipeline_deploy'
     steps:
 
     - checkout: self
@@ -66,5 +66,5 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'apply'
-        commandOptions: '-var-file="./wfo_terraform.tfvars" -var="tenant_id=$(TENANT_ID)" -var="client_id=$(WFO_CLIENT_ID)" -var="client_secret=$(WFO_CLIENT_SECRET2)"'
+        commandOptions: '-var-file="./pipeline_terraform.tfvars" -var="tenant_id=$(TENANT_ID)" -var="client_id=$(CLIENT_ID)" -var="client_secret=$(CLIENT_SECRET)"'
         environmentServiceNameAzureRm: 'Azure'
