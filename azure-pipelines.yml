@@ -7,7 +7,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  tf_init_command_options: '-input=false -backend-config="storage_account_name=$(TF_BACKEND_STORAGE_ACCOUNT)" -backend-config="container_name=tfstate" -backend-config="key=azure.iam.iac.it-network-test.tf.state" -backend-config="access_key=$(TF_BACKEND_SA_ACCESS_KEY)"'
+  tf_init_command_options: '-input=false -backend-config="storage_account_name=$(TF_BACKEND_STORAGE_ACCOUNT)" -backend-config="container_name=tfstate" -backend-config="key=azure.vm.crowdstrike.iac.tf.state" -backend-config="access_key=$(TF_BACKEND_SA_ACCESS_KEY)"'
 
 stages:
 - stage: 'pipeline_plan'
