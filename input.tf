@@ -42,6 +42,6 @@ variable "vnet_rg" {
   type        = string
 }
 
-variable "subnet_name" {
+variable "vm_subnet_name" {
   type        = string
 }
